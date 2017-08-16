@@ -1,17 +1,18 @@
 def my_collect(array)
   i = 0
-  new_array = []
+
+  fixed = []
+
   while i < array.length
-    new_array.push(yield(array[i]))
-    puts new_array[i]
+    fixed << yield(array[i])
     i += 1
   end
 
-  return new_array
+  return fixed
 
 end
 
-collection = ['ruby', 'javascript', 'python', 'objective-c']
-my_collect(collection) do |lang|
-  lang.upcase
+array = ["Tim Jones", "Tom Smith", "Jim Campagno"]
+my_collect(array) do |name|
+  name.split(" ").first
 end
